@@ -1,0 +1,197 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+@layer base {
+  * {
+    @apply scroll-smooth;
+    border-color: rgb(55 65 81);
+  }
+
+  body {
+    @apply bg-slate-900 text-slate-100 font-sans antialiased;
+    background: linear-gradient(135deg, rgb(15 23 42) 0%, rgb(30 41 59) 50%, rgb(51 65 85) 100%);
+    min-height: 100vh;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer components {
+  .animate-fade-in-up {
+    animation: fadeInUp 0.8s ease-out;
+  }
+
+  .animate-float {
+    animation: float 3s ease-in-out infinite;
+  }
+
+  .animate-spin-slow {
+    animation: spin 3s linear infinite;
+  }
+
+  .animate-cursor {
+    animation: cursor 1s infinite;
+  }
+
+  .gradient-text {
+    background: linear-gradient(135deg, rgb(99 102 241), rgb(34 211 238));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .gradient-border {
+    background: linear-gradient(135deg, rgb(99 102 241), rgb(34 211 238));
+    padding: 2px;
+    border-radius: 0.75rem;
+  }
+
+  .gradient-border > * {
+    background: rgb(15 23 42);
+    border-radius: calc(0.75rem - 2px);
+  }
+
+  .data-grid-bg {
+    background-image: linear-gradient(rgba(99, 102, 241, 0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(99, 102, 241, 0.04) 1px, transparent 1px);
+    background-size: 20px 20px;
+  }
+
+  .floating-particles::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: radial-gradient(circle at 20% 80%, rgba(99, 102, 241, 0.3) 2px, transparent 2px),
+      radial-gradient(circle at 80% 20%, rgba(34, 211, 238, 0.3) 2px, transparent 2px),
+      radial-gradient(circle at 40% 40%, rgba(168, 85, 247, 0.3) 2px, transparent 2px);
+    background-size: 100px 100px, 150px 150px, 200px 200px;
+    animation: float 6s ease-in-out infinite;
+    pointer-events: none;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes cursor {
+  0%,
+  50% {
+    opacity: 1;
+  }
+  51%,
+  100% {
+    opacity: 0;
+  }
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgb(15 23 42);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, rgb(99 102 241), rgb(34 211 238));
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(135deg, rgb(79 70 229), rgb(6 182 212));
+}
+
+::selection {
+  background: rgba(99, 102, 241, 0.3);
+  color: rgb(241 245 249);
+}
+
+
+/* Animations pour les formes organiques */
+
+/* Blob 1 - Déformation douce et lente, centré */
+@keyframes blob-morph-1 {
+  0% {
+    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+    transform: scale(1);
+  }
+  25% {
+    border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%;
+    transform: scale(1.05);
+  }
+  50% {
+    border-radius: 50% 60% 30% 60% / 40% 50% 60% 50%;
+    transform: scale(0.95);
+  }
+  75% {
+    border-radius: 70% 30% 60% 40% / 60% 40% 50% 70%;
+    transform: scale(1.02);
+  }
+  100% {
+    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+    transform: scale(1);
+  }
+}
+
+/* Blob 2 - Déformation douce et indépendante, centré */
+@keyframes blob-morph-2 {
+  0% {
+    border-radius: 40% 70% 60% 30% / 40% 70% 30% 60%;
+    transform: scale(1);
+  }
+  30% {
+    border-radius: 70% 40% 50% 60% / 60% 50% 70% 30%;
+    transform: scale(0.9);
+  }
+  60% {
+    border-radius: 50% 50% 40% 70% / 70% 30% 50% 60%;
+    transform: scale(1.08);
+  }
+  85% {
+    border-radius: 30% 60% 70% 50% / 50% 60% 40% 70%;
+    transform: scale(0.96);
+  }
+  100% {
+    border-radius: 40% 70% 60% 30% / 40% 70% 30% 60%;
+    transform: scale(1);
+  }
+}
+
+/* Classes Tailwind personnalisées */
+.animate-blob-morph-1 {
+  animation: blob-morph-1 8s infinite ease-in-out;
+}
+
+.animate-blob-morph-2 {
+  animation: blob-morph-2 10s infinite ease-in-out;
+}
