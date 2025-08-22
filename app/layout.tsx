@@ -4,9 +4,12 @@ import { GeistMono } from 'geist/font/mono'
 import './globals.css'
 
 export const metadata: Metadata = {
-  title: 'v0 App',
-  description: 'Created with v0',
-  generator: 'v0.app',
+  title: 'Fabrice TOKOUDAGBA - Data Scientist',
+  description: 'Le portfolio de Fabrice TOKOUDAGBA',
+  generator: 'Next.js',
+  icons: {
+    icon: "/favicon.png",
+  },
 }
 
 export default function RootLayout({
